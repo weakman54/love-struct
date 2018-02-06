@@ -32,9 +32,9 @@ end
 function Grid:initialize(width, height, obj)
   self:clear()
   
-  for x, width do
+  for x=1, width do
     table.insert(self, {})
-    for y, height do
+    for y=1, height do
       table.insert(self[x], obj)
     end
   end
@@ -46,9 +46,9 @@ end
 function Grid:initialize(width, height, f, ...)
   self:clear()
   
-  for x, width do
+  for x=1, width do
     table.insert(self, {})
-    for y, height do
+    for y=1, height do
       table.insert(self[x], f(...))
     end
   end
