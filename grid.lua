@@ -28,6 +28,33 @@ function Grid:clear()
 end
 
 ---------------------------------------------------------------------------------------------------
+-- (Re)Initialize the Grid with the given object
+function Grid:initialize(width, height, obj)
+  self:clear()
+  
+  for x, width do
+    table.insert(self, {})
+    for y, height do
+      table.insert(self[x], obj)
+    end
+  end
+end
+
+---------------------------------------------------------------------------------------------------
+-- (Re)Initialize the Grid with the given function
+-- the function will be called with any additional arguments forwarded to it
+function Grid:initialize(width, height, f, ...)
+  self:clear()
+  
+  for x, width do
+    table.insert(self, {})
+    for y, height do
+      table.insert(self[x], f(...))
+    end
+  end
+end
+
+---------------------------------------------------------------------------------------------------
 -- Returns the number of grid elements. This is rather slow. For debug only.
 function Grid:size()
     local count = 0
@@ -225,6 +252,7 @@ return Grid
 
 ---------------------------------------------------------------------------------------------------
 -- By Casey Baxter (Kadoba) Casey_Baxter@Hotmail.com, 2012
+-- Modified by Erik Wallin (weakman54) 2018
 --
 -- CC0 Public Domain Dedication 
 -- To the extent possible under law, the author(s) have dedicated all copyright and related and 
