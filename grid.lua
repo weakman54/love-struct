@@ -43,7 +43,7 @@ end
 ---------------------------------------------------------------------------------------------------
 -- (Re)Initialize the Grid with the given function
 -- the function will be called with any additional arguments forwarded to it
-function Grid:initialize(width, height, f, ...)
+function Grid:initializeWithFunction(width, height, f, ...)
   self:clear()
   
   for x=1, width do
